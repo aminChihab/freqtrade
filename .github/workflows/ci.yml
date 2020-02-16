@@ -202,14 +202,14 @@ jobs:
 
     - name: Build distribution
       run: |
-        pip install -U wheel
+        pip install -U setuptools wheel
         python3 setup.py sdist bdist_wheel
 
     - name: Publish to PyPI (Test)
-      uses: pypa/gh-action-pypi-publish@v1.0.0a0
+      uses: pypa/gh-action-pypi-publish@master
       with:
         user: __token__
-        password: ${{ secrets.pypi_password }}
+        password: ${{ secrets.pypi_test_password }}
         repository_url: https://test.pypi.org/legacy/
 
     - name: Build and test and push docker image
