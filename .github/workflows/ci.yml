@@ -7,6 +7,8 @@ on:
       - develop
       - github_actions_tests
     tags:
+    release:
+      types: [published]
   pull_request:
   schedule:
     - cron:  '0 5 * * 4'
@@ -219,6 +221,7 @@ jobs:
 
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@master
+      if: (steps.extract_branch.outputs.branch == 'master' || github.event_name == 'release')
       with:
         user: __token__
         password: ${{ secrets.pypi_password }}
