@@ -203,7 +203,7 @@ jobs:
     - name: Build distribution
       run: |
         pip install -U setuptools wheel
-        python3 setup.py sdist bdist_wheel
+        python setup.py sdist bdist_wheel
 
     - name: Publish to PyPI (Test)
       uses: pypa/gh-action-pypi-publish@master
