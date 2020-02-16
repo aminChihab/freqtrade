@@ -12,7 +12,7 @@ if __version__ == 'develop':
         # Releases are in the format "2020.1" - we increment the latest version for dev.
         prefix = f"{last_release[0]}.{int(last_release[1]) + 1}"
         dev_version = int(datetime.now().timestamp() // 1000)
-        __version__ = f"{prefix}.dev.{dev_version}"
+        __version__ = f"{prefix}.dev{dev_version}"
 
         #  subprocess.check_output(
         #     ['git', 'log', '--format="%h"', '-n 1'],
